@@ -39,6 +39,7 @@ public class LocationPermission : MonoBehaviour
         }
     }
 
+    //TODO: is not working
     public void OpenAppSettings()
     {
 #if UNITY_ANDROID
