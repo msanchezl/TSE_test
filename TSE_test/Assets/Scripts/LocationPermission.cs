@@ -8,6 +8,7 @@ public class LocationPermission : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _locationStatusText;
     [SerializeField] private Button _addManualPermissionBtn;
 
+#if UNITY_ANDROID
     private void Start()
     {
         _addManualPermissionBtn.gameObject.SetActive(false);
@@ -41,7 +42,7 @@ public class LocationPermission : MonoBehaviour
 
     public void OpenAppSettings()
     {
-#if UNITY_ANDROID
+
         try
         {
             AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
@@ -55,8 +56,8 @@ public class LocationPermission : MonoBehaviour
         {
             Debug.LogError("Error al intentar abrir la configuración: " + e.Message);
         }
-#endif
     }
+#endif
 
     private void SetText(string text, Color color)
     {
